@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home</title>
+    <!-- Link to Bootstrap CSS and your custom styles.css -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1 class="my-5">Welcome to the News Category Prediction</h1>
+        <form id="predictForm" action="{{ url_for('predict') }}" method="post">
+            <div class="form-group">
+                <label for="headline">Enter the Headline:</label>
+                <input type="text" id="headline" name="headline" class="form-control" required>
+            </div>
+            <!-- Add the loader with a Spinner -->
+            <button id="predictButton" type="submit" class="btn btn-primary" disabled>
+                <span id="loader" class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
+                Predict
+            </button>
+        </form>
+    </div>
+    <div class="container">
+    <div class="alert alert-info mt-4">
+        <p><strong>This is a News Category Detection on Headlines</strong></p>
+        <p>Developed by Gaurang Manchekar</p>
+        <p>A Deep Learning model based on the News Aggregator dataset detects the category:</p>
+        <ul>
+            <li>Buisness</li>
+            <li>Science and Technology</li>
+            <li>Health</li>
+            <li>Entertainment</li>
+            <li>Other</li>
+        </ul>
+        <p>It also provides a related link to the news.</p>
+    </div>
+    </div>
+
+    <!-- Add Bootstrap JavaScript link (required for some components) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.7/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        // JavaScript to show loader when predict button is clicked
+        const predictForm = document.getElementById('predictForm');
+        const predictButton = document.getElementById('predictButton');
+        const loader = document.getElementById('loader');
+        const headlineInput = document.getElementById('headline');
+
+        headlineInput.addEventListener('input', function () {
+            // Enable the predict button when there is input in the headline field
+            predictButton.disabled = headlineInput.value.trim() === '';
+        });
+
+        predictForm.addEventListener('submit', function (event) {
+            // Show the loader when the form is submitted
+            loader.classList.remove('d-none');
+            predictButton.disabled = true;
+        });
+    </script>
+</body>
+</html>

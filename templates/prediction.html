@@ -1,0 +1,39 @@
+<!--
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Prediction Result</title>
+</head>
+<body>
+    <h1>Prediction Result</h1>
+    <p>News Headline: {{ headline }}</p>
+    <p>Predicted Category: {{ category }}</p>
+    <p>Related News Link: <a href="{{ link }}" target="_blank">{{ link }}</a></p>
+    <a href="/">Back to Home</a>
+</body>
+</html>
+-->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Prediction Result</title>
+    <!-- Add Bootstrap CSS link -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="mb-4">Prediction Result</h1>
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">News Headline: {{ headline }}</h5>
+                <p class="card-text">Predicted Category: {{ category }}</p>
+                <p class="card-text">Related News Link: <a href="{{ link }}" target="_blank">{{ link }}</a></p>
+                <a class="btn btn-primary" href="index.html">Back to Home</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Bootstrap JavaScript link (required for some components) -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
